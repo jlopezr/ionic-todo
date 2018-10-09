@@ -30,7 +30,6 @@ export class HomePage {
   }
 
   addItem() {
-
     console.log("addItem()");
 
     let addModal = this.modalCtrl.create(AddItemPage);

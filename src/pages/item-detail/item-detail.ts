@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
+import {Data} from "../../providers/data/data";
 
 /**
  * Generated class for the ItemDetailPage page.
@@ -17,7 +18,7 @@ export class ItemDetailPage {
   title: string;
   description: string;
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  constructor(public navCtrl: NavController, public navParams: NavParams, public dataService: Data) {
   }
 
   ionViewDidLoad() {
@@ -25,6 +26,11 @@ export class ItemDetailPage {
 
     this.title = this.navParams.get('item').title;
     this.description = this.navParams.get('item').description;
+  }
+
+  removeItem() {
+    console.log('Remove item: '+this.title);
+    this.dataService.remove(this.title);
   }
 
 }
